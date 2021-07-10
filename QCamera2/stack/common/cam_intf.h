@@ -910,6 +910,9 @@ typedef struct {
 
     /* dual camera specific params */
     INCLUDE(CAM_INTF_PARM_RELATED_SENSORS_CALIBRATION,  cam_related_system_calibration_data_t, 1);
+
+    INCLUDE(XIAOMI_01,                                  uint32_t,                 8);
+
     INCLUDE(CAM_INTF_META_AF_FOCAL_LENGTH_RATIO,        cam_focal_length_ratio_t, 1);
     INCLUDE(CAM_INTF_META_SNAP_CROP_INFO_SENSOR,        cam_stream_crop_info_t,   1);
     INCLUDE(CAM_INTF_META_SNAP_CROP_INFO_CAMIF,         cam_stream_crop_info_t,   1);
@@ -1034,7 +1037,6 @@ typedef struct {
     INCLUDE(XIAOMI_02,                                  uint32_t,                    1);
     INCLUDE(XIAOMI_03,                                  uint32_t,                    1);
 
-    INCLUDE(XIAOMI_01,                                  uint32_t,                    1);
     INCLUDE(XIAOMI_06,                                  uint32_t,                    1);
     INCLUDE(XIAOMI_07,                                  uint32_t,                    1);
     INCLUDE(XIAOMI_08,                                  uint32_t,                    1);

@@ -1246,6 +1246,9 @@ typedef struct {
     cam_face_detection_info_t faces[MAX_ROI];  /* detailed information of faces detected */
     qcamera_face_detect_type_t fd_type;        /* face detect for preview or snapshot frame*/
     cam_dimension_t fd_frame_dim;              /* frame dims on which fd is applied */
+
+    // TODO XIAOMI: xiaomi pushed something before this variable, find it
+    
     uint8_t update_flag;                       /* flag to inform whether HAL needs to send cb
                                                 * to app or not */
 } cam_face_detection_data_t;
