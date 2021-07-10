@@ -613,7 +613,7 @@ typedef struct {
 } cam_stream_img_prop_t;
 
 typedef struct {
-    uint8_t enableStream; /*0 – stop and 1-start */
+    uint8_t enableStream; /*0 ï¿½ stop and 1-start */
 } cam_request_frames;
 
 typedef struct {
@@ -902,6 +902,10 @@ typedef struct {
     INCLUDE(CAM_INTF_PARM_BESTSHOT_MODE,                uint32_t,                    1);
     INCLUDE(CAM_INTF_PARM_DIS_ENABLE,                   int32_t,                     1);
     INCLUDE(CAM_INTF_PARM_LED_MODE,                     int32_t,                     1);
+
+    INCLUDE(XIAOMI_04,                                  uint32_t,                    1);
+    INCLUDE(XIAOMI_05,                                  uint8_t,                     1);
+
     INCLUDE(CAM_INTF_META_LED_MODE_OVERRIDE,            uint32_t,                    1);
 
     /* dual camera specific params */
@@ -1026,6 +1030,15 @@ typedef struct {
     INCLUDE(CAM_INTF_PARM_JPEG_SCALE_DIMENSION,         cam_dimension_t,             1);
     INCLUDE(CAM_INTF_META_FOCUS_DEPTH_INFO,             uint8_t,                     1);
     INCLUDE(CAM_INTF_PARM_HAL_BRACKETING_HDR,           cam_hdr_param_t,             1);
+
+    INCLUDE(XIAOMI_02,                                  uint32_t,                    1);
+    INCLUDE(XIAOMI_03,                                  uint32_t,                    1);
+
+    INCLUDE(XIAOMI_01,                                  uint32_t,                    1);
+    INCLUDE(XIAOMI_06,                                  uint32_t,                    1);
+    INCLUDE(XIAOMI_07,                                  uint32_t,                    1);
+    INCLUDE(XIAOMI_08,                                  uint32_t,                    1);
+
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to

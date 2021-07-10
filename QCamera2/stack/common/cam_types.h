@@ -2152,6 +2152,9 @@ typedef enum {
     /* parameters added for related cameras */
     /* fetch calibration info for related cam subsystem */
     CAM_INTF_PARM_RELATED_SENSORS_CALIBRATION,
+
+    XIAOMI_01,
+
     /* focal length ratio info */
     CAM_INTF_META_AF_FOCAL_LENGTH_RATIO,
     /* crop for binning & FOV adjust */
@@ -2235,8 +2238,6 @@ typedef enum {
     /* HAL based HDR*/
     CAM_INTF_PARM_HAL_BRACKETING_HDR,
 
-
-    XIAOMI_01,
     XIAOMI_02,
     XIAOMI_03,
     XIAOMI_04,
@@ -2244,7 +2245,7 @@ typedef enum {
     XIAOMI_06,
     XIAOMI_07,
     XIAOMI_08,
-    
+
 
     CAM_INTF_PARM_MAX
 } cam_intf_parm_type_t;
