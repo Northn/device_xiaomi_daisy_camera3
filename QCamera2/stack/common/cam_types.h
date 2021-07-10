@@ -2234,6 +2234,18 @@ typedef enum {
     CAM_INTF_META_SPOT_LIGHT_DETECT,
     /* HAL based HDR*/
     CAM_INTF_PARM_HAL_BRACKETING_HDR,
+
+
+    XIAOMI_01,
+    XIAOMI_02,
+    XIAOMI_03,
+    XIAOMI_04,
+    XIAOMI_05,
+    XIAOMI_06,
+    XIAOMI_07,
+    XIAOMI_08,
+    
+
     CAM_INTF_PARM_MAX
 } cam_intf_parm_type_t;
 
