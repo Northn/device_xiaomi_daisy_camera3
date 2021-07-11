@@ -223,8 +223,8 @@ typedef struct{
     cam_wb_mode_type supported_white_balances[CAM_WB_MODE_MAX];
 
     /* Capability list of supported insensor HDR types
-     * Backend is expected to fill in all the supported types and set appropriate
-     * count, see cam_sensor_hdr_type_t for valid types
+    * Backend is expected to fill in all the supported types and set appropriate
+    * count, see cam_sensor_hdr_type_t for valid types
     */
     size_t supported_sensor_hdr_types_cnt;
     cam_sensor_hdr_type_t supported_sensor_hdr_types[CAM_SENSOR_HDR_MAX];
@@ -253,18 +253,23 @@ typedef struct{
 
     uint8_t video_stablization_supported; /* flag id video stablization is supported */
 
+    volatile char xiaomi_03[327]; /* xiaomi_03[3] = sizes_tbl_cnt, like preview_sizes_tbl_cnt */
+                                    /* others are the tables? */
+
     size_t picture_sizes_tbl_cnt;                           /* picture sizes table size */
     cam_dimension_t picture_sizes_tbl[MAX_SIZES_CNT];       /* picture sizes table */
     /* The minimum frame duration that is supported for each
-     * resolution in availableProcessedSizes. Should correspond
-     * to the frame duration when only that processed stream
-     * is active, with all processing set to FAST */
+    * resolution in availableProcessedSizes. Should correspond
+    * to the frame duration when only that processed stream
+    * is active, with all processing set to FAST */
     int64_t picture_min_duration[MAX_SIZES_CNT];
 
     /* capabilities specific to HAL 1 */
 
     int32_t modes_supported;                                /* mask of modes supported: 2D, 3D */
     uint32_t sensor_mount_angle;                            /* sensor mount angle */
+
+    
 
     float focal_length;                                     /* focal length */
     float hor_view_angle;                                   /* horizontal view angle */
@@ -310,7 +315,7 @@ typedef struct{
     size_t supported_raw_fmt_cnt;
     cam_format_t supported_raw_fmts[CAM_FORMAT_MAX];
     /* The minimum frame duration that is supported for above
-       raw resolution */
+    raw resolution */
     int64_t raw_min_duration[MAX_SIZES_CNT];
 
     /* 3A version*/
@@ -341,8 +346,9 @@ typedef struct{
     /* QCOM HDR specific control. Indicates number of frames and exposure needs for the frames */
     cam_hdr_bracketing_info_t hdr_bracketing_setting;
 
+
     cam_feature_mask_t qcom_supported_feature_mask; /* mask of qcom specific features supported:
-                                                     * such as CAM_QCOM_FEATURE_SUPPORTED_FACE_DETECTION*/
+                                                    * such as CAM_QCOM_FEATURE_SUPPORTED_FACE_DETECTION*/
     cam_padding_info_t padding_info;      /* padding information from PP */
     uint32_t min_num_pp_bufs;             /* minimum number of buffers needed by postproc module */
     cam_format_t rdi_mode_stream_fmt;  /* stream format supported in rdi mode */
@@ -369,7 +375,7 @@ typedef struct{
 
     cam_dimension_t geo_correction_map_size;
     float geo_correction_map[2 * 3 * CAM_MAX_MAP_WIDTH *
-              CAM_MAX_MAP_HEIGHT];
+            CAM_MAX_MAP_HEIGHT];
 
     float lens_position[3];
 
@@ -391,17 +397,17 @@ typedef struct{
     float sensor_physical_size[SENSOR_PHYSICAL_SIZE_CNT];
 
     /* Dimensions of full pixel array, possibly including
-       black calibration pixels */
+    black calibration pixels */
     cam_dimension_t pixel_array_size;
     /* Area of raw data which corresponds to only active
-       pixels; smaller or equal to pixelArraySize. */
+    pixels; smaller or equal to pixelArraySize. */
     cam_rect_t active_array_size;
 
     /* Maximum raw value output by sensor */
     int32_t white_level;
 
     /* A fixed black level offset for each of the Bayer
-       mosaic channels */
+    mosaic channels */
     int32_t black_level_pattern[BLACK_LEVEL_PATTERN_CNT];
 
     /* Time taken before flash can fire again in nano secs */
@@ -421,7 +427,7 @@ typedef struct{
     uint8_t flash_max_energy;
 
     /* Maximum number of supported points in the tonemap
-       curve */
+    curve */
     int32_t max_tone_map_curve_points;
 
     /* supported formats */
@@ -468,7 +474,7 @@ typedef struct{
     /* still more info */
     cam_still_more_t  stillmore_settings_need;
     /* chroma flash info */
-    cam_chroma_flash_t chroma_flash_settings_need;
+    cam_chroma_flash_t chroma_flash_settings_need; // XIAOMI_0K
 
     cam_rational_type_t forward_matrix[3][3];
     cam_rational_type_t color_transform[3][3];
@@ -498,7 +504,7 @@ typedef struct{
     cam_true_portrait_t  true_portrait_settings_need;
 
     /* Sensor type information */
-    cam_sensor_type_t sensor_type;
+    cam_sensor_type_t sensor_type; // XIAOMI_OK
 
     cam_aberration_mode_t aberration_modes[CAM_COLOR_CORRECTION_ABERRATION_MAX];
     uint32_t aberration_modes_count;
@@ -547,7 +553,7 @@ typedef struct{
       left, top, right, bottom */
     int32_t optical_black_regions[MAX_OPTICAL_BLACK_REGIONS * 4];
     /* Count is K/4 */
-    uint8_t optical_black_region_count;
+    uint8_t optical_black_region_count; // XIAOMI_OK
 
     /* hot pixel */
     uint8_t hotPixel_mode;
@@ -557,6 +563,8 @@ typedef struct{
     /* supported instant capture/AEC convergence modes */
     size_t supported_instant_aec_modes_cnt;
     cam_aec_convergence_type supported_instant_aec_modes[CAM_AEC_CONVERGENCE_MAX];
+
+    char xiaomi_04[2051];
 
     /* Dual cam calibration data */
     cam_related_system_calibration_data_t related_cam_calibration;
