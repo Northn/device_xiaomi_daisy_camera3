@@ -1044,11 +1044,6 @@ typedef struct {
 
     INCLUDE(XIAOMI_02,                                  uint32_t,                    1);
     INCLUDE(XIAOMI_03,                                  uint32_t,                    1);
-
-    INCLUDE(XIAOMI_06,                                  uint32_t,                    1);
-    INCLUDE(XIAOMI_07,                                  uint32_t,                    1);
-    INCLUDE(XIAOMI_08,                                  uint32_t,                    1);
-
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to
