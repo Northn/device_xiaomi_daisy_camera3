@@ -560,11 +560,11 @@ typedef struct{
     uint32_t hotPixel_count;
     cam_coordinate_type_t hotPixelMap[512];
 
+    char xiaomi_04[2051];
+    
     /* supported instant capture/AEC convergence modes */
     size_t supported_instant_aec_modes_cnt;
     cam_aec_convergence_type supported_instant_aec_modes[CAM_AEC_CONVERGENCE_MAX];
-
-    char xiaomi_04[2051];
 
     /* Dual cam calibration data */
     cam_related_system_calibration_data_t related_cam_calibration;
